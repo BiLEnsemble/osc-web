@@ -29,18 +29,19 @@ Received from an OSC app/device at : <div id="status"></div>
                     host: '127.0.0.1'
                 },
                 client: {
-                    port: 3334,
+                    port: 57120,
                     host: '127.0.0.1'
                 }
             }
         );
     });
-
     socket.on('message', function(obj) {
         var status = document.getElementById("status");
         status.innerHTML = obj[0];
-        console.log(obj);
-    });
+   console.log(obj);
+      socket.emit('message', '/foobar');
+   });
+
 </script>
 
 <button onclick="socket.emit('message', '/foobar');">Send OSC message</button>

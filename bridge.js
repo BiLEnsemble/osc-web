@@ -12,10 +12,10 @@ io.sockets.on('connection', function (socket) {
 
     oscServer.on('message', function(msg, rinfo) {
       console.log(msg, rinfo);
-      socket.emit("message", msg);
+//		socket.emit("message", { addr: msg, msg: msg });
     });
   });
   socket.on("message", function (obj) {
-    oscClient.send(obj);
+      oscClient.send(obj.addr, obj.msg);
   });
 });
