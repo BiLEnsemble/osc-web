@@ -39,11 +39,11 @@ Received from an OSC app/device at : <div id="status"></div>
         var status = document.getElementById("status");
         status.innerHTML = obj[0];
    console.log(obj);
-      socket.emit('message', '/foobar');
+      socket.emit('message', '/foobar', '');
    });
 
 </script>
 
-<button onclick="socket.emit('message', '/foobar');">Send OSC message</button>
+<button onclick="socket.emit('message', '/foobar', 'clicked');">Send OSC message</button>
 
 </body> </html>
