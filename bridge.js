@@ -10,9 +10,14 @@ io.sockets.on('connection', function (socket) {
 		oscClient.send('/status', socket.sessionId + ' connected');
 		console.log("Connected: ", oscClient);
 	});
-	socket.on("message", function (addr, msg) {
+	socket.on("message", function () {
+        var arr = Array.prototype.slice.call(arguments, 0);
+
+        //console.log(arr);
+
 		if (typeof oscClient !== 'undefined') {
-			oscClient.send(addr, msg);
+			//oscClient.send(addr, msg);
+            oscClient.send.apply(oscClient, arr);
 		}
 		else
 		{
