@@ -21,7 +21,7 @@ io.sockets.on('connection', function (socket) {
 		}
 		else
 		{
-			console.log("oscClient undefined! not sending: ", addr, msg);
+			console.log("oscClient undefined! not sending: ", arr);
 		}
 	});
 });
